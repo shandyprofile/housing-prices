@@ -14,24 +14,30 @@ def home(request):
 def predict(request):
     return  render(request, "predict.html")
 
+def is_mobile(request):
+    user_agent = request.META.get('HTTP_USER_AGENT', '').lower()
+    mobile_keywords = ['mobile', 'android', 'iphone', 'ipad']
+    return any(keyword in user_agent for keyword in mobile_keywords)
+
 def result(request):
-    data = pd.read_csv("./USA_Housing.csv")
-    data = data.drop(['Address'], axis=1)
-    X = data.drop(['Price'], axis=1)
-    Y = data['Price']
-    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.30)
-    model = LinearRegression()
-    model.fit(X_train, Y_train)
+    mobile = is_mobile(request)
 
-    var1 = float(request.GET['n1'])
-    var2 = float(request.GET['n2'])
-    var3 = float(request.GET['n3'])
-    var4 = float(request.GET['n4'])
-    var5 = float(request.GET['n5'])
+    price = " ";
 
-    pred = model.predict(np.array([var1, var2, var3,var4,var5]).reshape(1,-1))
-    pred = round(pred[0])
+    if mobile:
+        print("Request từ MOBILE")
+        price = "MOBILE - Bedrooms: " + request.GET.get("bedrooms") + " - 150.000 USD";
+    else:
+        print("Request từ DESKTOP")
 
-    price = " The Predicted Price is $"+str(pred)
+        bedrooms = int(request.GET.get("bedrooms"))
+        if bedrooms < 3:
+            price = "DESKTOP - Bedrooms: " + str(bedrooms) + " - 100.000 USD"
+        elif bedrooms > 10:
+            price = "DESKTOP - Bedrooms: " + str(bedrooms) + " - 400.000 USD"
+        else:
+            price = "DESKTOP - Bedrooms: " + str(bedrooms) + " - 200.000 USD"
 
-    return  render(request, "predict.html", {"result2":price})
+    return render(request, "predict.html", {
+        "result2": price
+    })

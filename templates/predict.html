@@ -1,16 +1,25 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.main.js"></script>
-   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     <title>Home</title>
     <style>
-        .main{
+        .main {
             position: fixed;
             top: 65px;
             left: 295px;
@@ -19,163 +28,132 @@
             align-items: center;
             border-radius: 5%;
         }
-        div{
+
+        div {
             padding: 15px;
         }
-        h2{
+
+        h2 {
             font-size: 30px;
             color: darkred;
         }
-        h1{
+
+        h1 {
             font-size: 40px;
             color: black;
         }
-        input[type=submit]{
+
+        input[type=submit] {
             background-color: black;
             color: white;
             cursor: pointer;
             padding: 16px 32px;
 
         }
-        body{
+
+        body {
             background-image: url("{% static 'background.jpg' %}");
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
         }
-        footer {
-              text-align: right;
-              color: black;
-              position: fixed;
-               left: 0;
-               bottom: 0;
-               width: 100%;
 
-            }
+        footer {
+            text-align: right;
+            color: black;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
+
 <body style="text-align: center">
-   <!-- <div class="main">
-       <h1>Please Enter the Following Values</h1>
-       <form action="result">
-           <div class="row">
-               <div class="col-sm-4" style="background-color: Bisque">
-                   <p>Avg.Area Income</p>
-                   <input type="text" name="n1">
-               </div>
-               <div class="col-sm-4" style="background-color: DarkSeaGreen;">
-                   <p>Avg.Area House Age</p>
-                   <input type="text" name="n2">
-               </div>
-               <div class="col-sm-4" style="background-color: LightPink;">
-                   <p>Avg.Area Number of Rooms</p>
-                   <input type="text" name="n3">
-               </div>
-           </div>
-           <div class="row">
-               <div class="col-sm-4" style="background-color: Turquoise;">
-                   <p>Avg.Area Number of Bedrooms</p>
-                   <input type="text" name="n4">
-               </div>
-               <div class="col-sm-4" style="background-color: RosyBrown;">
-                   <p>Avg.Area Populations</p>
-                   <input type="text" name="n5">
-               </div>
-           </div>
-           <div class="row">
-               <input type="submit" value="PREDICT">
-           </div>
-       </form>
-       <div class="row">
-           <h2>{{result2}}</h2>
-       </div>
+    <div class="container mt-4">
+        <div class="card shadow-lg p-4">
+            <h2 class="text-center mb-3">House Price Prediction</h2>
+            <p class="text-center text-muted">
+                Nhập thông tin để dự đoán giá nhà
+            </p>
 
-   </div> -->
+            <form action="result" method="GET">
 
-    <div class="container mt-5">
+                <div class="row g-3">
 
-    <div class="card shadow-lg p-4">
-        <h2 class="text-center mb-4">House Price Prediction</h2>
-        <p class="text-center text-muted">
-            Nhập các thông số để dự đoán giá nhà (Regression Model)
-        </p>
-        <form action="result" method="GET">
-            <div class="row g-3">
-                <!-- Income -->
-                <div class="col-12">
-                    <label class="form-label">Avg Area Income</label>
-                    <input type="text" class="form-control" name="n1"
-                        placeholder="VD: 50000 (thu nhập trung bình)">
-                    <div class="form-text">
-                        Thu nhập trung bình khu vực (USD/năm)
+                    <!-- Income -->
+                    <div class="col-md-12">
+                        <label class="form-label">Avg Area Income</label>
+                        <input type="number" step="any" class="form-control" name="avgAreaIncome"
+                            placeholder="VD: 50000 (thu nhập trung bình)">
+                        <div class="form-text">
+                            Thu nhập trung bình khu vực (USD/năm)
+                        </div>
                     </div>
+
+                    <!-- House Age -->
+                    <div class="col-md-12">
+                        <label class="form-label">House Age</label>
+                        <input type="number" step="any" class="form-control" name="houseAge" placeholder="VD: 5 (năm)">
+                        <div class="form-text">
+                            Tuổi trung bình của nhà
+                        </div>
+                    </div>
+
+                    <!-- Rooms -->
+                    <div class="col-md-12">
+                        <label class="form-label">Number of Rooms</label>
+                        <input type="number" step="any" class="form-control" name="numberRooms" placeholder="VD: 7">
+                        <div class="form-text">
+                            Tổng số phòng
+                        </div>
+                    </div>
+
+                    <!-- Bedrooms -->
+                    <div class="col-md-12">
+                        <label class="form-label">Bedrooms</label>
+                        <input type="number" step="any" class="form-control" name="bedrooms" placeholder="VD: 3">
+                        <div class="form-text">
+                            Số phòng ngủ
+                        </div>
+                    </div>
+
+                    <!-- Population (ẩn trên mobile) -->
+                    <div class="col-md-12 d-none d-md-block">
+                        <label class="form-label">Population</label>
+                        <input type="number" step="any" class="form-control" name="population" placeholder="VD: 30000">
+                        <div class="form-text">
+                            Dân số khu vực (chỉ hiển thị trên màn hình lớn)
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- House Age -->
-                <div class="col-12">
-                    <label class="form-label">House Age</label>
-                    <input type="text" class="form-control" name="n2"
-                        placeholder="VD: 5 (năm)">
-                    <div class="form-text">
-                        Tuổi trung bình của nhà
-                    </div>
+                <!-- Button -->
+                <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-primary w-100">
+                        Predict Price
+                    </button>
                 </div>
 
-                <!-- Rooms -->
-                <div class="col-12">
-                    <label class="form-label">Number of Rooms</label>
-                    <input type="text" class="form-control" name="n3"
-                        placeholder="VD: 7">
-                    <div class="form-text">
-                        Tổng số phòng trong nhà
-                    </div>
-                </div>
+            </form>
 
-                <!-- Bedrooms -->
-                <div class="col-12">
-                    <label class="form-label">Bedrooms</label>
-                    <input type="text" class="form-control" name="n4"
-                        placeholder="VD: 3">
-                    <div class="form-text">
-                        Số phòng ngủ
-                    </div>
-                </div>
-
-                <!-- Population -->
-                <div class="col-12">
-                    <label class="form-label">Population</label>
-                    <input type="text" class="form-control" name="n5"
-                        placeholder="VD: 30000">
-                    <div class="form-text">
-                        Dân số khu vực
-                    </div>
-                </div>
-
+            <!-- Result -->
+            {% if result2 %}
+            <div class="alert alert-success mt-4 text-center">
+                <h4>Predicted Price: {{ result2 }}</h4>
             </div>
+            {% endif %}
 
-            <!-- Button -->
-            <div class="mt-4 text-center">
-                <button type="submit" class="btn btn-primary px-5">
-                    Predict Price
-                </button>
-            </div>
-
-        </form>
-
-        <!-- Result -->
-        {% if result2 %}
-        <div class="alert alert-success mt-4 text-center">
-            <h4>Predicted Price: {{ result2 }}</h4>
         </div>
-        {% endif %}
 
     </div>
 
-</div>
-
-<footer>
-  <p>Author: Shandy Nguyen<br>
-  <a style="color: black" href="mailto:hieunt239@fu.edu.vn">hieunt239@fu.edu.vn</a></p>
-</footer>
+    <footer>
+        <p>Author: Shandy Nguyen<br>
+            <a style="color: black" href="mailto:hieunt239@fu.edu.vn">hieunt239@fu.edu.vn</a>
+        </p>
+    </footer>
 </body>
+
 </html>
